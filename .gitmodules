@@ -1,0 +1,16 @@
+[submodule "Protos/api"]
+	path = Protos/api
+	url = https://github.com/authzed/api.git
+	branch = main
+[submodule "Protos/protoc-gen-validate"]
+	path = Protos/protoc-gen-validate
+	url = https://github.com/envoyproxy/protoc-gen-validate.git
+	branch = main
+[submodule "Protos/api-common-protos"]
+	path = Protos/api-common-protos
+	url = https://github.com/googleapis/api-common-protos.git
+	branch = main
+[submodule "Protos/grpc-gateway"]
+	path = Protos/grpc-gateway
+	url = https://github.com/grpc-ecosystem/grpc-gateway.git
+	branch = main

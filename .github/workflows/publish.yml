@@ -1,0 +1,27 @@
+name: PublishNuget
+
+on:
+  push:
+    branches: [ main, build ]
+
+jobs:
+  publish:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Pull submodules
+      run: git submodule update --init --recursive --depth 1
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 8.0.201
+
+    - name: Pack
+      run: dotnet pack
+
+    - name: Publish
+      run: dotnet nuget push ./bin/Release/SpiceDb.Grpc.Client.1.0.0.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{secrets.NUGET_API_KEY}}
